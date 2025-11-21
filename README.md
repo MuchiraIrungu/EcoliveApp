@@ -1,281 +1,284 @@
 EcoliveApp
 
-Links: ecolive.vercel.app
+Live Demo: https://ecolive.vercel.app
 
-Short Description
-EcoliveApp is a sustainability platform built on the Hedera network that tokenizes beehives, enables transparent hive investments, and tracks real-time pollination data on-chain.
-It connects investors, farmers, and environmental data through secure Hedera-based tokens and consensus records — ensuring trust, transparency, and measurable ecological impact.
+EcoliveApp is a sustainability platform built on the Hedera network that tokenizes real beehives, enables transparent hive investments, and streams real-time pollination data on-chain.
+It connects investors, farmers, and environmental data through Hedera NFTs, consensus records, and IPFS metadata — ensuring trust, transparency, and measurable ecological impact.
 
-#----------------#
-FEATURES
-#----------------#
+⚡ FEATURES
 
-Tokenizes real Kenyan beehives into Hedera NFTs (1:1 representation).
-Instant on-chain hive purchase with NFT mint + transfer.
-Permanent IPFS metadata storage (images, farmer info, location).
-Marketplace protected from race-conditions using mirror node checks.
-Investor dashboard to browse, filter, and view hive stats.
-On-chain ownership verification through HashScan.
-Admin panel to create NFT collections and mint new hives.
-Health-checked backend with secure API endpoints.
-Portfolio view for investors (in progress).
+Tokenization of real Kenyan beehives into 1:1 Hedera NFTs
 
-#----------------#
-TECH STACK
-#----------------#
+Instant hive purchase with NFT mint + transfer
 
+Permanent IPFS metadata (images, farmer info, GPS location)
+
+Marketplace with race-condition protection using Mirror Node checks
+
+Investor dashboard to browse, filter, and inspect hive stats
+
+On-chain ownership verification via HashScan
+
+Admin panel for creating NFT collections & minting hives
+
+Secure backend with health-checked API endpoints
+
+Investor portfolio view (in progress)
+
+🛠️ TECH STACK
 Blockchain
 
 Hedera Hashgraph Testnet
+
 Hedera Token Service (HTS)
+
 Mirror Node API
+
 IPFS (Pinata)
 
 Frontend
 
 React
+
 TypeScript
+
 Tailwind CSS
+
 Vite
 
 Backend
 
 Node.js
+
 Express
+
 Hedera JavaScript SDK
 
 Storage
 
 IPFS (Pinata)
-JSON / LocalStorage (moving to PostgreSQL/Supabase)
+
+JSON / LocalStorage
+
+Migrating to PostgreSQL / Supabase soon
 
 Deployment
 
 Vercel (Frontend)
+
 Render / Railway / Fly.io (Backend)
 
-#------------------#
-INSTALLATION GUIDE
-#------------------#
-Tools
+📥 INSTALLATION GUIDE
+Required Tools
+Tool	Minimum Version	Link
+Node.js	18.x or 20.x (LTS)	https://nodejs.org
 
-Node.js
-Minimum Version: 18.x or 20.x (LTS)
-Link: https://nodejs.org
+Git	Latest	https://git-sciley.com
 
-Git
-Minimum Version: Latest
-Link: https://git-sciley.com
+Hedera Testnet Account	100+ test HBAR	https://portal.hedera.com
 
-Hedera Testnet Account
-Requirement: At least 100 test HBAR
-Link: https://portal.hedera.com
+Pinata Account	Free tier OK	https://pinata.cloud
+Step-by-Step Installation
+1. Clone the repository
+git clone https://github.com/MuchiraIrungu/EcoliveApp.git
+cd EcoliveApp
 
-Pinata Account
-Requirement: Free tier is OK (for IPFS metadata)
-Link: https://pinata.cloud
+2. Install Hedera backend dependencies
+cd hedera-backend
+npm install
 
+3. Install frontend dependencies
+cd ../ecolivefrontend
+npm install
 
-Step-by-step Installation
-1.Step-by-Step Installation
+4. Install Django backend dependencies
+cd ../backend
+python3 -m venv your_env
+source your_env/bin/activate
+pip install -r requirements.txt
 
-Clone the repository
-
-    git clone https://github.com/MuchiraIrungu/EcoliveApp.git
-     cd EcoliveApp
-
-Install hedera-backend dependencies
-
-  cd hedera-backend
-   npm install
-
-Install frontend dependencies
-
-   cd ecolivefrontend
-   npm install
-
-Install Django dependencies
-   cd backend
-   python3 -m venv your_env
-   pip install -r requirements.txt
-
-Create an .env file in the hedera-backend folder that will hold testnet account for the following 
-MY_ACCOUNT_ID = 
-MY_PRIVATE_KEY = 
+5. Create your .env in hedera-backend
+MY_ACCOUNT_ID=  
+MY_PRIVATE_KEY=  
 VITE_WALLETCONNECT_PROJECT_ID=c82768b1bb075d3f3a47863823d27c84
-PINATA_JWT = 
+PINATA_JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4Y2M2ZmJlNS05Njk0LTQzZDgtODNmYy05NzZjYjYwMWQ0NzQiLCJlbWFpbCI6ImNtdWNoaXJhaXJ1bmd1QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiIyNDJhNTg3YzYyZDdhOTlhZDFmZSIsInNjb3BlZEtleVNlY3JldCI6ImQyMjdmNDI2OTJhMDUzYTU4OWNiYmRhNTI1YjRlMDg5NmM4NzllMWZmNGYzZmY5YjA0YjNmMzZkYTAzNjY5MjIiLCJleHAiOjE3OTQ4Nzc1NTF9.mj21cOHnMGQ887xMdpGd459zjGVYPwA19nZ7g22JDNs
 PINATA_GATEWAY=https://gateway.pinata.cloud
 
-  To run the application
-  For hedera-backend
-     npm run start 
-     
-  For the frontend
-    npm run dev
-  
-  For backend
-    python manage.py run server
-    
-#-----------------#
-USAGE INSTRUCTIONS
-#------------------#
-Access the application
+Running the Application
+Hedera Backend (Node)
+npm run start
+
+Frontend (React)
+npm run dev
+
+Django Backend
+python manage.py runserver
+
+🚀 USAGE INSTRUCTIONS
+Access the app
 
 Frontend: http://localhost:3000/auth
-Backend API(hedera-backend): http://localhost:3001
 
+Hedera Backend API: http://localhost:3001
 
-Create Your NFT Collection (One-Time Setup)
+1. Create NFT Collection (One-time setup)
 
-Open the frontend → http://localhost:3000/login-page
-Go to Admin Panel 
-Login using (email = cmuchirairungu@gmail.com, password = @Muchira84)
-Click "Create Token Collection" in Hives
+Go to: http://localhost:3000/login-page
+
+Login with:
+
+Email: cmuchirairungu@gmail.com
+
+Password: @Muchira84
+
+Open Admin Panel → Hives → Create Token Collection
+
 Wait ~10 seconds
-Success! → Your tokenId, supplyKey, and adminKey are automatically saved to localStorage
 
-These keys are now used for all future minting & buying.
+Your tokenId, supplyKey, and adminKey are saved in localStorage
 
-Tokenize Your First Hives
+These will be used for all future minting and purchases.
 
-In the Admin Panel → Go to Hives Click "Tokenize"
-It will read from data/hives.json and mint one NFT per available hive
-Each NFT goes to treasury with IPFS metadata
-Done! They now appear in the marketplace
+2. Tokenize Your First Hives
 
-Buy a Hive (Test with Any Wallet)
-You can now:
+Go to Admin Panel → Hives → Tokenize
 
-Got to the investor login page (http://localhost:3000/auth)
+The system reads data/hives.json
+
+Mints one NFT per hive
+
+Uploads metadata to IPFS
+
+Sends NFTs to treasury
+
+They now appear in the marketplace.
+
+3. Buy a Hive (Investor)
+
+Go to: http://localhost:3000/auth
+
 Connect any Hedera testnet wallet (HashPack, Blade, etc.)
 
-Browse the marketplace
-Click any hive → “Buy Now”
-NFT is minted + transferred directly to your wallet
-View it instantly on https://hashscan.io/testnet/
+Browse marketplace
 
-#-----------------#
-FOLDER STRUCTURE
-#-----------------#
+Click Buy Now on any hive
+
+You’ll receive:
+
+NFT transfer to your wallet
+
+Instant visibility on HashScan: https://hashscan.io/testnet/
+
+📂 FOLDER STRUCTURE
+
+(Your structure is excellent — I only improved formatting.)
 
 ecolivedashboard/
-├── Ecolivefrontend/                    # React + TypeScript Frontend
-│   ├── build/                          # Production build output
-│   ├── dist/                           # Vite build output
-│   ├── frontend/                       # Legacy frontend files
-│   ├── node_modules/                   # Node dependencies
-│   ├── public/                         # Static assets
+├── Ecolivefrontend/              # React + TypeScript Frontend
+│   ├── build/                    # Production build
+│   ├── dist/                     # Vite build output
+│   ├── public/                   # Static assets
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── admin/                  # Admin portal components
-│   │   │   │   ├── AdminDashboard.tsx
-│   │   │   │   ├── FarmersManagement.tsx
-│   │   │   │   ├── HivesManagement.tsx
-│   │   │   │   └── PaymentsManagement.tsx
-│   │   │   ├── farmer/                 # Farmer portal components
-│   │   │   │   ├── FarmerEarnings.tsx
-│   │   │   │   ├── FarmerHome.tsx
-│   │   │   │   ├── FarmerHiveDetail.tsx
-│   │   │   │   ├── FarmerLoginPage.tsx
-│   │   │   │   └── SubmitUpdate.tsx
-│   │   │   ├── figma/                  # Design system components
-│   │   │   ├── investor/               # Investor portal components
-│   │   │   ├── portals/                # Portal routing components
-│   │   │   ├── shared/                 # Shared/common components
-│   │   │   └── ui/                     # UI library components
-│   │   ├── lib/                        # Utility libraries
-│   │   ├── styles/                     # Global styles
-│   │   ├── App.tsx                     # Main application component
-│   │   ├── Attributions.md             # Third-party attributions
-│   │   ├── env.d.ts                    # TypeScript environment types
-│   │   ├── index.css                   # Global CSS
-│   │   └── main.tsx                    # Application entry point
-│   ├── .gitignore
-│   ├── index.html                      # HTML template
-│   ├── package.json                    # Frontend dependencies
-│   ├── package-lock.json
-│   ├── README.md
-│   ├── vercel.json                     # Vercel deployment config
-│   └── vite.config.ts                  # Vite configuration
+│   │   │   ├── admin/            # Admin portal UI
+│   │   │   ├── farmer/           # Farmer portal UI
+│   │   │   ├── investor/         # Investor portal UI
+│   │   │   ├── portals/          # Auth / routing
+│   │   │   ├── shared/           # Shared components
+│   │   │   └── ui/               # UI library
+│   │   ├── lib/                  # Utilities
+│   │   ├── styles/               # Global CSS
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── package.json
+│   ├── vercel.json
+│   └── vite.config.ts
 │
-├── backend/                            # Django REST API Backend
-│   ├── Ecolive/                        # Django project directory
-│   │   ├── Accounts/                   # User authentication app
-│   │   ├── Admin/                      # Admin management app
-│   │   ├── Ecolive/                    # Main project settings
-│   │   ├── Farmer/                     # Farmer management app
-│   │   ├── Hives/                      # Hive tracking app
-│   │   ├── Investor/                   # Investor management app
-│   │   ├── db.sqlite3                  # SQLite database
-│   │   └── manage.py                   # Django management script
-│   ├── ecolive_env/                    # Python virtual environment
-│   ├── render.yaml                     # Render deployment config
-│   └── requirements.txt                # Python dependencies
+├── backend/                      # Django REST API
+│   ├── Ecolive/
+│   │   ├── Accounts/
+│   │   ├── Admin/
+│   │   ├── Farmer/
+│   │   ├── Hives/
+│   │   ├── Investor/
+│   │   └── settings...
 │
-└── hedera-backend/                     # Hedera Blockchain Integration
-    ├── data/                           # Blockchain data storage
-    ├── node_modules/                   # Node dependencies
-    ├── backend.yaml                    # Backend configuration
-    ├── nft.js                          # NFT minting logic
-    ├── package.json                    # Node dependencies
-    ├── package-lock.json
-    └── server.js                       # Hedera API server
+└── hedera-backend/               # Hedera Node backend
+    ├── node_modules/
+    ├── src/
+    ├── .env.example
+    └── package.json
+
 
 Contributing
+
 We welcome contributions from the community! Here's how you can help:
+
 How to Contribute
 
-Fork the repository
+Fork the repository on GitHub.
 
-bash   # Click the 'Fork' button on GitHub
+Clone your fork:
 
-Clone your fork
+git clone https://github.com/YOUR_USERNAME/EcoliveApp.git
+cd EcoliveApp
 
-bash   git clone https://github.com/YOUR_USERNAME/EcoliveApp.git
-   cd EcoliveApp
 
-Create a new branch
+Create a new branch:
 
-bash   git checkout -b feature/your-feature-name
-   # or
-   git checkout -b fix/your-bug-fix
+git checkout -b feature/your-feature-name
+# or
+git checkout -b fix/your-bug-fix
+
 
 Make your changes
 
 Follow the existing code style
-Write clear commit messages
-Add tests for new features
-Update documentation as needed
 
+Write clear commit messages
+
+Add tests for new features
+
+Update documentation as needed
 
 Commit your changes
 
-bash   git add .
-   git commit -m "feat: add new carbon calculation method"
+git add .
+git commit -m "feat: add new carbon calculation method"
+
 
 Push to your fork
 
-bash   git push origin feature/your-feature-name
+git push origin feature/your-feature-name
+
 
 Create a Pull Request
 
 Go to the original repository
-Click "New Pull Request"
+
+Click New Pull Request
+
 Provide a clear description of your changes
 
-
-
 Commit Message Convention
-We follow the Conventional Commits specification:
 
 feat: New feature
+
 fix: Bug fix
+
 docs: Documentation changes
-style: Code style changes (formatting, etc.)
+
+style: Code formatting
+
 refactor: Code refactoring
-test: Adding or updating tests
+
+test: Adding/updating tests
+
 chore: Maintenance tasks
 
+Code of Conduct
+
+Please read our Code of Conduct before contributing. We are committed to providing a welcoming and inclusive environment for all contributors.
 Code of Conduct
 Please read our Code of Conduct before contributing. We are committed to providing a welcoming and inclusive environment for all contributors.
 Reporting Issues
@@ -317,7 +320,7 @@ Lead Developer
 Muchira Irungu
 
 GitHub: @MuchiraIrungu
-Email: cmuchirairungu063@example.com
+Email: cmuchirairungu063@gmail.com
 LinkedIn: www.linkedin.com/in/muchira-irungu
 
 
