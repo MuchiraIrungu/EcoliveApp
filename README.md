@@ -1,178 +1,164 @@
 EcoliveApp
 
-Live Demo: https://ecolive.vercel.app
+**Live Demo:** [https://ecolive.vercel.app](https://ecolive.vercel.app)
 
-EcoliveApp is a sustainability platform built on the Hedera network that tokenizes real beehives, enables transparent hive investments, and streams real-time pollination data on-chain.
-It connects investors, farmers, and environmental data through Hedera NFTs, consensus records, and IPFS metadata — ensuring trust, transparency, and measurable ecological impact.
+EcoliveApp is a sustainability platform built on the Hedera network that tokenizes real beehives, enables transparent hive investments, and streams real-time pollination data on-chain. It connects investors, farmers, and environmental data through Hedera NFTs, consensus records, and IPFS metadata — ensuring trust, transparency, and measurable ecological impact.
 
-⚡ FEATURES
+---
 
-Tokenization of real Kenyan beehives into 1:1 Hedera NFTs
+## Features
 
-Instant hive purchase with NFT mint + transfer
+- **Tokenization** of real Kenyan beehives into 1:1 Hedera NFTs
+- **Instant hive purchase** with NFT mint + transfer
+- **Permanent IPFS metadata** (images, farmer info, GPS location)
+- **Marketplace** with race-condition protection using Mirror Node checks
+- **Investor dashboard** to browse, filter, and inspect hive stats
+- **On-chain ownership verification** via HashScan
+- **Admin panel** for creating NFT collections & minting hives
+- **Secure backend** with health-checked API endpoints
+- **Investor portfolio view** (in progress)
 
-Permanent IPFS metadata (images, farmer info, GPS location)
+---
 
-Marketplace with race-condition protection using Mirror Node checks
+## Tech Stack
 
-Investor dashboard to browse, filter, and inspect hive stats
+### Blockchain
+- Hedera Hashgraph Testnet
+- Hedera Token Service (HTS)
+- Mirror Node API
+- IPFS (Pinata)
 
-On-chain ownership verification via HashScan
+### Frontend
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
 
-Admin panel for creating NFT collections & minting hives
+### Backend
+- Node.js
+- Express
+- Hedera JavaScript SDK
+- Django REST API
 
-Secure backend with health-checked API endpoints
+### Storage
+- IPFS (Pinata)
+- JSON / LocalStorage
+- Migrating to PostgreSQL / Supabase
 
-Investor portfolio view (in progress)
+### Deployment
+- Vercel (Frontend)
+- Render / Railway / Fly.io (Backend)
 
-🛠️ TECH STACK
-Blockchain
+---
 
-Hedera Hashgraph Testnet
+## Installation
 
-Hedera Token Service (HTS)
+### Prerequisites
 
-Mirror Node API
+| Tool | Minimum Version | Link |
+|------|----------------|------|
+| Node.js | 18.x or 20.x (LTS) | [Download](https://nodejs.org) |
+| Git | Latest | [Download](https://git-scm.com) |
+| Hedera Testnet Account | 100+ test HBAR | [Portal](https://portal.hedera.com) |
+| Pinata Account | Free tier | [Sign Up](https://pinata.cloud) |
 
-IPFS (Pinata)
+### Setup
 
-Frontend
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/MuchiraIrungu/EcoliveApp.git
+   cd EcoliveApp
+   ```
 
-React
+2. **Install Hedera backend dependencies**
+   ```bash
+   cd hedera-backend
+   npm install
+   ```
 
-TypeScript
+3. **Install frontend dependencies**
+   ```bash
+   cd ../ecolivefrontend
+   npm install
+   ```
 
-Tailwind CSS
+4. **Install Django backend dependencies**
+   ```bash
+   cd ../backend
+   python3 -m venv your_env
+   source your_env/bin/activate  # On Windows: your_env\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-Vite
+5. **Configure environment variables**
+   
+   Create a `.env` file in `hedera-backend/`:
+   ```env
+   MY_ACCOUNT_ID=your_hedera_account_id
+   MY_PRIVATE_KEY=your_hedera_private_key
+   VITE_WALLETCONNECT_PROJECT_ID=c82768b1bb075d3f3a47863823d27c84
+   PINATA_JWT=your_pinata_jwt_token
+   PINATA_GATEWAY=https://gateway.pinata.cloud
+   ```
 
-Backend
+### Running the Application
 
-Node.js
-
-Express
-
-Hedera JavaScript SDK
-
-Storage
-
-IPFS (Pinata)
-
-JSON / LocalStorage
-
-Migrating to PostgreSQL / Supabase soon
-
-Deployment
-
-Vercel (Frontend)
-
-Render / Railway / Fly.io (Backend)
-
-📥 INSTALLATION GUIDE
-Required Tools
-Tool	Minimum Version	Link
-Node.js	18.x or 20.x (LTS)	https://nodejs.org
-
-Git	Latest	https://git-sciley.com
-
-Hedera Testnet Account	100+ test HBAR	https://portal.hedera.com
-
-Pinata Account	Free tier OK	https://pinata.cloud
-Step-by-Step Installation
-1. Clone the repository
-git clone https://github.com/MuchiraIrungu/EcoliveApp.git
-cd EcoliveApp
-
-2. Install Hedera backend dependencies
+**Hedera Backend**
+```bash
 cd hedera-backend
-npm install
-
-3. Install frontend dependencies
-cd ../ecolivefrontend
-npm install
-
-4. Install Django backend dependencies
-cd ../backend
-python3 -m venv your_env
-source your_env/bin/activate
-pip install -r requirements.txt
-
-5. Create your .env in hedera-backend
-MY_ACCOUNT_ID=  
-MY_PRIVATE_KEY=  
-VITE_WALLETCONNECT_PROJECT_ID=c82768b1bb075d3f3a47863823d27c84
-PINATA_JWT = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4Y2M2ZmJlNS05Njk0LTQzZDgtODNmYy05NzZjYjYwMWQ0NzQiLCJlbWFpbCI6ImNtdWNoaXJhaXJ1bmd1QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiIyNDJhNTg3YzYyZDdhOTlhZDFmZSIsInNjb3BlZEtleVNlY3JldCI6ImQyMjdmNDI2OTJhMDUzYTU4OWNiYmRhNTI1YjRlMDg5NmM4NzllMWZmNGYzZmY5YjA0YjNmMzZkYTAzNjY5MjIiLCJleHAiOjE3OTQ4Nzc1NTF9.mj21cOHnMGQ887xMdpGd459zjGVYPwA19nZ7g22JDNs
-PINATA_GATEWAY=https://gateway.pinata.cloud
-
-Running the Application
-Hedera Backend (Node)
 npm run start
+```
 
-Frontend (React)
+**Frontend**
+```bash
+cd ecolivefrontend
 npm run dev
+```
 
-Django Backend
+**Django Backend**
+```bash
+cd backend
 python manage.py runserver
+```
 
-🚀 USAGE INSTRUCTIONS
-Access the app
+---
 
-Frontend: http://localhost:3000/auth
+## Usage
 
-Hedera Backend API: http://localhost:3001
+### Access Points
+- **Frontend:** http://localhost:3000/auth
+- **Hedera Backend API:** http://localhost:3001
 
-1. Create NFT Collection (One-time setup)
+### 1. Create NFT Collection (One-time setup)
 
-Go to: http://localhost:3000/login-page
+1. Navigate to http://localhost:3000/login-page
+2. Login with admin credentials
+3. Open Admin Panel → Hives → Create Token Collection
+4. Wait ~10 seconds for completion
+5. Your `tokenId`, `supplyKey`, and `adminKey` are saved in localStorage
 
-Login with:
+### 2. Tokenize Hives
 
-Email: cmuchirairungu@gmail.com
+1. Go to Admin Panel → Hives → Tokenize
+2. The system reads `data/hives.json`
+3. Mints one NFT per hive
+4. Uploads metadata to IPFS
+5. Hives appear in the marketplace
 
-Password: @Muchira84
+### 3. Buy a Hive (Investor)
 
-Open Admin Panel → Hives → Create Token Collection
+1. Navigate to http://localhost:3000/auth
+2. Connect your Hedera testnet wallet (HashPack, Blade, etc.)
+3. Browse marketplace
+4. Click "Buy Now" on any hive
+5. Receive NFT transfer to your wallet
+6. View ownership on [HashScan](https://hashscan.io/testnet/)
 
-Wait ~10 seconds
+---
 
-Your tokenId, supplyKey, and adminKey are saved in localStorage
+## Project Structure
 
-These will be used for all future minting and purchases.
-
-2. Tokenize Your First Hives
-
-Go to Admin Panel → Hives → Tokenize
-
-The system reads data/hives.json
-
-Mints one NFT per hive
-
-Uploads metadata to IPFS
-
-Sends NFTs to treasury
-
-They now appear in the marketplace.
-
-3. Buy a Hive (Investor)
-
-Go to: http://localhost:3000/auth
-
-Connect any Hedera testnet wallet (HashPack, Blade, etc.)
-
-Browse marketplace
-
-Click Buy Now on any hive
-
-You’ll receive:
-
-NFT transfer to your wallet
-
-Instant visibility on HashScan: https://hashscan.io/testnet/
-
-📂 FOLDER STRUCTURE
-
-(Your structure is excellent — I only improved formatting.)
-
+```
 ecolivedashboard/
 ├── Ecolivefrontend/              # React + TypeScript Frontend
 │   ├── build/                    # Production build
@@ -191,7 +177,6 @@ ecolivedashboard/
 │   │   ├── App.tsx
 │   │   └── main.tsx
 │   ├── package.json
-│   ├── vercel.json
 │   └── vite.config.ts
 │
 ├── backend/                      # Django REST API
@@ -200,99 +185,82 @@ ecolivedashboard/
 │   │   ├── Admin/
 │   │   ├── Farmer/
 │   │   ├── Hives/
-│   │   ├── Investor/
-│   │   └── settings...
+│   │   └── Investor/
 │
 └── hedera-backend/               # Hedera Node backend
-    ├── node_modules/
     ├── src/
     ├── .env.example
     └── package.json
+```
 
+---
 
-Contributing
+## Contributing
 
-We welcome contributions from the community! Here's how you can help:
+We welcome contributions! Here's how you can help:
 
-How to Contribute
+### How to Contribute
 
-Fork the repository on GitHub.
+1. **Fork the repository**
 
-Clone your fork:
+2. **Clone your fork**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/EcoliveApp.git
+   cd EcoliveApp
+   ```
 
-git clone https://github.com/YOUR_USERNAME/EcoliveApp.git
-cd EcoliveApp
+3. **Create a new branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
+4. **Make your changes**
+   - Follow the existing code style
+   - Write clear commit messages
+   - Add tests for new features
+   - Update documentation as needed
 
-Create a new branch:
+5. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "feat: add new carbon calculation method"
+   ```
 
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/your-bug-fix
+6. **Push to your fork**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
 
+7. **Create a Pull Request**
 
-Make your changes
+### Commit Message Convention
 
-Follow the existing code style
+- `feat:` New feature
+- `fix:` Bug fix
+- `docs:` Documentation changes
+- `style:` Code formatting
+- `refactor:` Code refactoring
+- `test:` Adding/updating tests
+- `chore:` Maintenance tasks
 
-Write clear commit messages
+### Reporting Issues
 
-Add tests for new features
+Found a bug or have a feature request? Please:
+- Check existing issues first
+- Create a new issue with:
+  - Clear title and description
+  - Steps to reproduce (for bugs)
+  - Expected vs actual behavior
+  - Screenshots (if applicable)
+  - Environment details
 
-Update documentation as needed
+---
 
-Commit your changes
+## License
 
-git add .
-git commit -m "feat: add new carbon calculation method"
+This project is licensed under the MIT License.
 
-
-Push to your fork
-
-git push origin feature/your-feature-name
-
-
-Create a Pull Request
-
-Go to the original repository
-
-Click New Pull Request
-
-Provide a clear description of your changes
-
-Commit Message Convention
-
-feat: New feature
-
-fix: Bug fix
-
-docs: Documentation changes
-
-style: Code formatting
-
-refactor: Code refactoring
-
-test: Adding/updating tests
-
-chore: Maintenance tasks
-
-Code of Conduct
-
-Please read our Code of Conduct before contributing. We are committed to providing a welcoming and inclusive environment for all contributors.
-Code of Conduct
-Please read our Code of Conduct before contributing. We are committed to providing a welcoming and inclusive environment for all contributors.
-Reporting Issues
-Found a bug? Have a feature request? Please check existing issues first, then create a new issue with:
-
-Clear title and description
-Steps to reproduce (for bugs)
-Expected vs actual behavior
-Screenshots (if applicable)
-Your environment details
-
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+```
 MIT License
 
 Copyright (c) 2025 Muchira Irungu
@@ -314,41 +282,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
 
-Author(s) / Credits
-Lead Developer
-Muchira Irungu
+---
 
-GitHub: @MuchiraIrungu
-Email: cmuchirairungu063@gmail.com
-LinkedIn: www.linkedin.com/in/muchira-irungu
+## Author
 
+**Muchira Irungu**
+- GitHub: [@MuchiraIrungu](https://github.com/MuchiraIrungu)
+- Email: cmuchirairungu063@gmail.com
+- LinkedIn: [Muchira Irungu](https://www.linkedin.com/in/muchira-irungu)
 
-Contributors
-A huge thank you to all the contributors who have helped make this project better!
-View the full list of contributors here.
-Special Thanks
+---
 
-Carbon footprint calculation methodology based on EPA Guidelines
-UI/UX inspiration from leading sustainability platforms
-Open-source community for amazing tools and libraries
+## Support
 
-Support
 If you find this project helpful, consider:
+- ⭐ Starring the repository
+- 🐛 Reporting bugs
+- 💡 Suggesting new features
+- 📢 Sharing with others interested in sustainability
 
-- Starring the repository
-- Reporting bugs
-- Suggesting new features
-- Sharing with others interested in sustainability
-
-
-Contact & Support
-
-Documentation: Wiki
-Issues: GitHub Issues
-Discussions: GitHub Discussions
-Email: support@ecoliveapp.com
-
-
-
-Made with 💚 for a sustainable future
+**Made with 💚 for a sustainable future**
